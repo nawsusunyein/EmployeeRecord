@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             tv_textview.text = it.employeeName.toString() + "-" + it.employeeAge.toString()
             this.ll_entries.addView(tv_textview)
         }
+
+
     }
 
     fun showEmployeeInformationbyId(view:View){
@@ -48,6 +50,16 @@ class MainActivity : AppCompatActivity() {
             tv_textview.text = it.employeeName.toString() + "-" + it.employeeAge.toString()
             this.ll_entries.addView(tv_textview)
         }
+    }
+
+    fun updateEmployeeInfo(view:View){
+        val employeeId = this.txt_employee_id.text.toString()
+        val employeeName = this.txt_employee_name.text.toString()
+        val employeeAge = this.txt_employee_age.text.toString()
+        val result = employeeDBHelper.updateUser(EmployeeModel(employeeId,employeeName,employeeAge))
+        this.txt_employee_id.setText("")
+        this.txt_employee_name.setText("")
+        this.txt_employee_age.setText("")
     }
 
     fun deleteEmployeeInformation(view:View){

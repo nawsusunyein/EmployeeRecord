@@ -92,6 +92,18 @@ class EmployeesDBHelper(context : Context) : SQLiteOpenHelper(context, DATABASE_
         return employeeList
     }
 
+    fun updateUser(employee : EmployeeModel) : Boolean{
+        val db = writableDatabase
+        val values = ContentValues()
+        values.put(DBContract.EmployeeEntry.COLUMN_EMPLOYEE_ID,employee.employeeId)
+        values.put(DBContract.EmployeeEntry.COLUMN_EMPLOYEE_NAME,employee.employeeName)
+        values.put(DBContract.EmployeeEntry.COLUMN_EMPLOYEE_AGE,employee.employeeAge)
+
+        val selection = DBContract.EmployeeEntry.COLUMN_EMPLOYEE_ID + "=" + employee.employeeId
+        val updateRow = db.update(DBContract.EmployeeEntry.TABLE_NAME,values,selection,null)
+        return true
+    }
+
     fun deleteUser(employeeId : String) : Boolean{
         val db = writableDatabase
         val selection = DBContract.EmployeeEntry.COLUMN_EMPLOYEE_ID + "=" + employeeId

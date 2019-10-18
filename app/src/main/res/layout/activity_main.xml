@@ -50,11 +50,29 @@
             android:onClick="deleteEmployeeInformation"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/btn_show_employee_all"
+            android:id="@+id/btn_employee_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show All"
+            android:text="Update"
+            android:onClick="updateEmployeeInfo"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_show_employee_by_id"
+            android:text="Show by Id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="showEmployeeInformationbyId"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn_show_employee_all"
+            android:text="Show All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showEmployeeInformation"
             android:layout_weight="1"/>
     </LinearLayout>
     <TextView
